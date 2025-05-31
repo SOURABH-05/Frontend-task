@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: $background-dark;
+  color: $text-primary;
+  line-height: 1.5;
+  min-width: 1280px;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+  padding: $spacing-lg;
+  transition: margin-left $transition-medium;
+  margin-left: 320px;
+  
+  &.sidebar-collapsed {
+    margin-left: 80px;
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: $spacing-sm;
+}
+
+.text-secondary {
+  color: $text-secondary;
+  font-size: smaller;
+}
+
+.percentage {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  
+  &.positive {
+    background-color: rgba($success-color, 0.1);
+    color: $success-color;
+  }
+  
+  &.negative {
+    background-color: rgba($error-color, 0.1);
+    color: $error-color;
+  }
+}
+
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3px;
+  row-gap: 2px;
+  column-gap: 2px;
+}

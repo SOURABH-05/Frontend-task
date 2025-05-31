@@ -1,0 +1,180 @@
+@import './variables.scss';
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: $background-card;
+  z-index: 100;
+  transition: width $transition-medium, transform $transition-medium;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &.collapsed {
+    width: 80px;
+
+    .sidebar-header .logo-text {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .nav-item {
+      padding: 16px 25px;
+
+      .nav-text {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+      }
+    }
+
+    .sidebar-footer {
+      .user-profile {
+        .user-info {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1px solid rgba($text-secondary, 0.1);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    color: $primary-color;
+    margin-right: $spacing-md;
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity $transition-medium, visibility $transition-medium;
+  }
+}
+
+.sidebar-content {
+  padding: $spacing-md 0;
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: background-color $transition-fast, color $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+    color: $text-primary;
+  }
+
+  &.active {
+    color: rgba(203, 60, 255, 1); 
+    
+  }
+
+  .nav-icon {
+    margin-right: $spacing-md;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+  }
+
+  .nav-text {
+    transition: opacity $transition-medium, visibility $transition-medium, width $transition-medium;
+  }
+}
+
+.sidebar-footer {
+  padding: $spacing-lg;
+  background-color: $background-card;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgba($text-secondary, 0.1);
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+        background-image: url('../assest/Group\ 1000004507.png');
+        background-size: cover;      
+  background-position: center;
+  background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      
+      margin-right: $spacing-md;
+    }
+
+    .user-info {
+      .user-name {
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.toggle-button {
+  position: fixed;
+  left: 250px;
+  top: $spacing-lg;
+  z-index: 101;
+  background-color: $background-card;
+  border: none;
+  color: $text-primary;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: left $transition-medium;
+  box-shadow: $shadow-md;
+
+  &.collapsed {
+    left: 50px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    left: 10px;
+    top: 10px;
+
+    &.open {
+      left: 240px;
+    }
+  }
+}

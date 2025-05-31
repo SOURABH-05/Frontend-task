@@ -1,0 +1,189 @@
+@import './variables.scss';
+
+.dashboard-header {
+  margin-bottom: $spacing-xl;
+  
+  h1 {
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-bottom: 15px;
+  
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  background-color: $background-card;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  width: 270px;
+  height: 130px;
+  
+  .stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-md;
+    
+    .stat-title {
+      color: $text-secondary;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      
+      .icon {
+        margin-right: $spacing-sm;
+        color: $text-secondary;
+      }
+    }
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .stat-percentage {
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    border-radius: 4px;
+    
+    &.positive {
+      background-color: rgba($success-color, 0.1);
+      color: $success-color;
+    }
+    
+    &.negative {
+      background-color: rgba($error-color, 0.1);
+      color: $error-color;
+    }
+    
+    &.neutral {
+      background-color: rgba($primary-color, 0.1);
+      color: $primary-color;
+    }
+  }
+}
+
+.chart-container {
+  background-color: $background-card;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  // .chart-container-1{
+
+  //   width:682.61px ;
+  //   height: 557px;
+  // }
+  
+ 
+  
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-lg;
+    
+    .chart-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    .chart-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      
+      .percentage {
+        font-size: 0.75rem;
+        margin-left: $spacing-sm;
+      }
+    }
+    
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-left: $spacing-md;
+        
+        .legend-color {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          margin-right: $spacing-xs;
+        }
+        
+        .legend-text {
+          font-size: 0.75rem;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+  
+  .chart-content {
+    height: 300px;
+    margin: 0 -#{$spacing-md};
+  }
+
+  .chart-content-2{
+   margin-bottom: 50px;
+   margin-top: -90px;
+  }
+  .chart-content-3{
+  margin-left: 20px;
+   margin-top: -60px;
+  }
+}
+ .chart-container-2{
+     width:374.39px ;
+    height: 278.49px;
+
+  }
+  .chart-container-3{
+     width:374.39px ;
+    height: 278.49px;
+    margin-top: -13px;
+  }
+
+.tooltip-container {
+  background-color: $background-card;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm $spacing-md;
+  box-shadow: $shadow-md;
+  border: 1px solid rgba($text-secondary, 0.1);
+  
+  .tooltip-label {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    margin-bottom: 2px;
+  }
+  
+  .tooltip-value {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
